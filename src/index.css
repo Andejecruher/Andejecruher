@@ -1,0 +1,120 @@
+@font-face {
+  font-family: 'Mr Dafoe';
+  src: url('../public/fonts/MrDafoe.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lobster';
+  src: url('../public/fonts/Lobster.ttf') format('truetype');
+}
+:root {
+  --primary-color: #6246ea;
+  --primary-color-light: rgba(98, 70, 234, 0.87);
+  --primary-contrast-text: #000;
+  --secondary-color: #6246ea;
+  --paper-background-color: #eff0f3;
+}
+
+.rotated-text {
+  transform: rotate(-10deg); 
+}
+
+.container-logo {
+  position: relative;
+  text-align: center;
+}
+
+.logo {
+  position: absolute;
+  top: 55%;
+  left: 14%;
+} 
+
+.logo-text {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 3rem;
+}
+
+.logo-mobile {
+  position: absolute;
+  top: 60%;
+  left: 18%;
+} 
+
+.logo-text-mobile {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 3rem;
+}
+@media only screen and (min-width: 320px) {
+  /* Estilos para dispositivos móviles */
+  .logo-mobile {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+  } 
+  .logo-text-mobile {
+    position: absolute;
+    top: 0%;
+    left: 30%;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  /* Estilos para dispositivos móviles */
+  .logo-mobile {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+  } 
+  .logo-text-mobile {
+    position: absolute;
+    top: 0%;
+    left: 35%;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  /* Estilos para dispositivos móviles */
+  .logo-mobile {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+  } 
+  .logo-text-mobile {
+    position: absolute;
+    top: 0%;
+    left: 35%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* Estilos para dispositivos móviles */
+  .logo-mobile {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+  } 
+  .logo-text-mobile {
+    position: absolute;
+    top: 0%;
+    left: 42%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* Estilos para dispositivos móviles */
+  .logo {
+    position: absolute;
+    top: 55%;
+    left: 12%;
+  } 
+  
+  .logo-text {
+    position: absolute;
+    top: 10%;
+    left: 8%;
+  }
+}

@@ -1,0 +1,39 @@
+.cardImg {
+  box-shadow: -10px 10px 15px 8px rgba(0, 0, 0, 0.356);
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.cardImg::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 8px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 8px;
+}
+
+.cardImg::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 8px;
+}
+
+.FeaturePost {
+  padding: 90px;
+}
+
+@media screen and (max-width: 375px) {
+  .FeaturePost {
+    padding: 30px;
+  }
+}
+
+  
