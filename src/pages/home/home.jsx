@@ -10,7 +10,7 @@ function Home() {
     <Grid item xs={12} md={12}>
       <SwipeableTextMobileStepper />
       <Container maxWidth="lg">
-      <AboutUs />
+        <AboutUs />
       </ Container>
     </Grid>
   );

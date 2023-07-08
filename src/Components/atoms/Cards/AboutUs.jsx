@@ -1,14 +1,15 @@
 import React from "react";
-import { Box, Avatar } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { styled } from "@mui/material/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import MuiGrid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
+import { Avatar } from "@mui/material";
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   box: {
+    width: "100%",
     backgroundColor: "silver",
     borderRadius: "10px",
     padding: theme.spacing(2),
@@ -39,20 +40,24 @@ const AboutUs = () => {
   return (
     <Box className={classes.box}>
       <Grid container>
-        <Grid item xs>
-          <Stack spacing={2} justifyContent={'center'}>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Avatar
-              alt="Remy Sharp"
-              src="https://material-ui.com/static/images/avatar/1.jpg"
-              sx={{ width: 56, height: 56 }}
+        <Grid
+          item
+          xs
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Avatar
+              width={250}
+              height={250}
+              alt="Travis Howard"
+              src="/static/images/avatar/2.jpg"
             />
-          </Box>
-    
-          </Stack>
+          <Typography variant="h5" align="center"> Nombre </Typography>
         </Grid>
         <Divider orientation="vertical" flexItem>
-          Sobre Mi
+          *
         </Divider>
         <Grid item xs>
           {content}

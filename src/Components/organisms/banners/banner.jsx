@@ -7,6 +7,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 import FeaturedPost from "./FeaturePost";
+import { Box } from "@mui/material";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -60,7 +61,7 @@ function SwipeableTextMobileStepper() {
         enableMouseEvents
       >
         {images.map((step, index) => (
-          <div key={step.label}>
+          <Box key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
                <FeaturedPost key={`Titulo de el contenido`} post={{
                 title: 'Featured post',
@@ -71,7 +72,7 @@ function SwipeableTextMobileStepper() {
                 imageLabel: 'Image Text',
               }} />
             ) : null}
-          </div>
+          </Box>
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
