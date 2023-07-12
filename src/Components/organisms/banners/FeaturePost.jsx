@@ -1,13 +1,12 @@
-import './style.css';
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { Box, Button } from '@mui/material';
-
+import "./style.css";
+import * as React from "react";
+import PropTypes from "prop-types";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { Box, Button } from "@mui/material";
 
 function FeaturedPost(props) {
   const { post } = props;
@@ -15,7 +14,7 @@ function FeaturedPost(props) {
   return (
     <Grid item xs={12} md={6}>
       <Box>
-        <Card sx={{ display: 'flex' }} className='FeaturePost'>
+        <Card sx={{ display: "flex" }} className="FeaturePost">
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
               {post.title}
@@ -28,21 +27,30 @@ function FeaturedPost(props) {
             </Typography>
             <Typography variant="subtitle1" color="primary">
               <Button variant="contained" color="primary">
-                Continue reading...
+                Leer más...
               </Button>
             </Typography>
           </CardContent>
           <CardMedia
-            className='cardImg'
+            className="cardImg cardImgDim"
             component="img"
-            sx={{ width: 360, display: { xs: 'none', sm: 'block' }, transform: 'translateY(-60px)'}}
+            sx={{
+              width: 360,
+              maxWidth: 360,
+              display: { xs: "none", sm: "block" },
+              transform: "translateY(-60px)",
+            }}
             image={post.image}
             alt={post.imageLabel}
           />
           <CardMedia
-            className='cardImg'
+            className="cardImg cardImgDim"
             component="img"
-            sx={{ width: 360, display: { xs: 'block', sm: 'block' }, transform: 'translateY(20px)'}}
+            sx={{
+              width: 360,
+              display: { xs: "block", sm: "block" },
+              transform: "translateY(20px)",
+            }}
             image={post.image}
             alt={post.imageLabel}
           />

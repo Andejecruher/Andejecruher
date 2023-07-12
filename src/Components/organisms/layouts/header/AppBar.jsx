@@ -58,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-const pages = ['Inicio', 'Sobre mi', 'Portafolio', 'Blog'];
+const pages = ['Inicio', 'Portafolio', 'Blog'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -3,7 +3,8 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
-import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+import { Facebook, Instagram } from "@mui/icons-material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Box } from "@mui/material";
 
 export default function Footer() {
@@ -42,27 +43,26 @@ export default function Footer() {
           </Grid>
           <Grid item xs={12} sm={4}>
             <Typography variant="h6" color="text.primary" gutterBottom>
-              Por si gustas seguirme !
+              Sigueme !
             </Typography>
-            <Link href="https://www.facebook.com/andejecruher" color="inherit">
+            <Link href="https://www.facebook.com/andejecruher" color="inherit" sx={{ color: "#1877F2" }}>
               <Facebook />
             </Link>
             <Link
               href="https://www.instagram.com/andejecruher/"
-              color="inherit"
-              sx={{ pl: 1, pr: 1 }}
+              sx={{ pl: 1, pr: 1, color: "#E4405F"  }}
             >
               <Instagram />
             </Link>
-            <Link href="https://twitter.com/Andejecruher" color="inherit">
-              <Twitter />
+            <Link href="https://www.linkedin.com/in/antonio-de-jesus-cruz-hernandez-2535748b/" color="inherit" sx={{ color: "#2867B2" }}>
+              <LinkedInIcon />
             </Link>
           </Grid>
         </Grid>
         <Box mt={5}>
           <Typography variant="body2" color="text.secondary" align="center">
             {"Copyright © "}
-            <Link color="inherit" href="https://your-website.com/">
+            <Link color="inherit" href="https://www.linkedin.com/in/antonio-de-jesus-cruz-hernandez-2535748b/">
               Andejecruher
             </Link>{" "}
             {new Date().getFullYear()}

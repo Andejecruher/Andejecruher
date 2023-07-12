@@ -13,24 +13,28 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: "San Francisco",
-    imgPath:
-      "https://thumbs.dreamstime.com/z/businessman-talking-smartphone-looking-graphs-african-46926302.jpg",
+    title: "Introducción a la inteligencia artificial",
+    date: "Jul 10, 2023",
+    description:
+      "Descubre los fundamentos de la inteligencia artificial y su aplicación en el desarrollo de software.",
+    image: "https://source.unsplash.com/random?ai",
+    imageLabel: "Inteligencia Artificial",
   },
   {
-    label: "Bird",
-    imgPath:
-      "https://thumbs.dreamstime.com/z/coders-discussing-programming-language-confident-professional-multiethnic-coders-discussing-programming-language-hipster-young-men-122547964.jpg",
+    title: "Las tendencias más importantes en el desarrollo web",
+    date: "Jul 8, 2023",
+    description:
+      "Conoce las tendencias actuales en el desarrollo web y cómo pueden impactar tu trabajo como programador.",
+    image: "https://source.unsplash.com/random?webdevelopment",
+    imageLabel: "Desarrollo web",
   },
   {
-    label: "Bali, Indonesia",
-    imgPath:
-      "https://thumbs.dreamstime.com/z/professional-development-programmer-working-programming-website-software-coding-technology-writing-codes-data-code-132331729.jpg",
-  },
-  {
-    label: "Goč, Serbia",
-    imgPath:
-      "https://thumbs.dreamstime.com/z/herd-elephants-sri-lanka-panorama-pinnawala-elephant-orphanage-central-282268416.jpg",
+    title: "Nuevas características en el lenguaje JavaScript",
+    date: "Jul 5, 2023",
+    description:
+      "Descubre las últimas características introducidas en JavaScript y cómo pueden mejorar tu flujo de trabajo.",
+    image: "https://source.unsplash.com/random?javascript",
+    imageLabel: "JavaScript",
   },
 ];
 
@@ -54,28 +58,31 @@ function SwipeableTextMobileStepper() {
   return (
     <div>
       <AutoPlaySwipeableViews
-      // style={{ marginTop: '5%' }}
+        // style={{ marginTop: '5%' }}
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
         {images.map((step, index) => (
-          <Box key={step.label}>
+          <Box key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
-               <FeaturedPost key={`Titulo de el contenido`} post={{
-                title: 'Featured post',
-                date: 'Nov 12',
-                description:
-                  'This is a wider card with supporting text below as a natural lead-in to additional content.',
-                image: 'https://source.unsplash.com/random?wallpapers',
-                imageLabel: 'Image Text',
-              }} />
+              <FeaturedPost
+                key={index}
+                post={{
+                  title: `${step.title}`,
+                  date: `${step.date}`,
+                  description: `${step.description}`,
+                  image: `${step.image}`,
+                  imageLabel: `${step.imageLabel}`,
+                }}
+              />
             ) : null}
           </Box>
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
+        style={{ backgroundColor: "#f6f6f6" }}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}

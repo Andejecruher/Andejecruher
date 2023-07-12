@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Mr Dafoe';
-  src: url('../public/fonts/MrDafoe.ttf') format('truetype');
+  src: url('./fonts/MrDafoe.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Lobster';
-  src: url('../public/fonts/Lobster.ttf') format('truetype');
+  src: url('./fonts/Lobster.ttf') format('truetype');
 }
 :root {
   --primary-color: #6246ea;

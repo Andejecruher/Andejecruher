@@ -26,6 +26,12 @@
   border-top-right-radius: 8px;
 }
 
+.cardImgDim {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+
 .FeaturePost {
   padding: 90px;
 }
