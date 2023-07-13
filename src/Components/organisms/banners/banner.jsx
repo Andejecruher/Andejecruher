@@ -58,7 +58,6 @@ function SwipeableTextMobileStepper() {
   return (
     <div>
       <AutoPlaySwipeableViews
-        // style={{ marginTop: '5%' }}
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
         onChangeIndex={handleStepChange}

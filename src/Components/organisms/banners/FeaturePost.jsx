@@ -14,15 +14,15 @@ function FeaturedPost(props) {
   return (
     <Grid item xs={12} md={6}>
       <Box>
-        <Card sx={{ display: "flex" }} className="FeaturePost">
+        <Card sx={{ display: "flex", width: '100%', height: '100%', boxShadow: 'none' }} className="FeaturePost">
           <CardContent sx={{ flex: 1 }}>
-            <Typography component="h2" variant="h5">
+            <Typography component="div" variant="h5">
               {post.title}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
               {post.date}
             </Typography>
-            <Typography variant="subtitle1" paragraph>
+            <Typography variant="description" paragraph>
               {post.description}
             </Typography>
             <Typography variant="subtitle1" color="primary">
@@ -37,7 +37,7 @@ function FeaturedPost(props) {
             sx={{
               width: 360,
               maxWidth: 360,
-              display: { xs: "none", sm: "block" },
+              display: { xs: "block", sm: "block", xl: "block" },
               transform: "translateY(-60px)",
             }}
             image={post.image}
@@ -48,7 +48,7 @@ function FeaturedPost(props) {
             component="img"
             sx={{
               width: 360,
-              display: { xs: "block", sm: "block" },
+              display: { xs: "none", sm: "block" },
               transform: "translateY(20px)",
             }}
             image={post.image}
@@ -61,6 +61,7 @@ function FeaturedPost(props) {
 }
 
 FeaturedPost.propTypes = {
+  
   post: PropTypes.shape({
     date: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
