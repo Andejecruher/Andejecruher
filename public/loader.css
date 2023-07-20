@@ -1,0 +1,87 @@
+@import "https://fonts.googleapis.com/css?family=Raleway&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Monospace&family=Lobster&display=swap&family=Roboto&display=swap";
+
+.page-loader {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: url("https://images.unsplash.com/photo-1569973560851-8c4563f4c3c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
+    no-repeat center center;
+  background-size: cover;
+  block-size: 100vh;
+  font-family: Lobster, sans-serif;
+  overflow-y: hidden;
+}
+
+.content1 {
+  position: relative;
+  inset-block-start: 35%;
+  margin-block: 0;
+  margin-inline: auto;
+  max-inline-size: 650px;
+
+  h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: 0 2px 5px black;
+  }
+}
+
+/* PRELOADER CSS */
+.page-loader {
+  position: absolute;
+  z-index: 1000;
+  background: #272727;
+  block-size: 100vh;
+  inline-size: 100%;
+
+  .txt {
+    position: relative;
+    color: #666;
+    font-family: Lobster, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    inset-block-start: 40%;
+    letter-spacing: 0.3rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+/* SPINNER ANIMATION */
+.spinner {
+  position: relative;
+  border-radius: 100%;
+  animation: sk-scaleout 1s infinite ease-in-out;
+  background-color: #fff;
+  block-size: 80px;
+  inline-size: 80px;
+  inset-block-start: 35%;
+  margin-block: 0;
+  margin-inline: auto;
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
