@@ -6,6 +6,7 @@ import Footer from "./Footer.vue";
 <template>
   <v-layout class="rounded rounded-md">
     <!-- 👉 Drawers -->
+
     <Drawers />
     <!-- 👉 Content -->
     <v-main class="d-flex align-center justify-center main-content">

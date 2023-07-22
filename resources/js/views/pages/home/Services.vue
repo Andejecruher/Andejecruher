@@ -16,9 +16,9 @@
           </v-card-text>
 
           <!-- Estilos para alinear el botón de contacto a la derecha -->
-          <v-card-actions class="contact-button-container">
+          <!-- <v-card-actions class="contact-button-container">
             <v-btn variant="outlined" color="primary">Contacto</v-btn>
-          </v-card-actions>
+          </v-card-actions> -->
         </v-card>
       </v-col>
     </v-row>

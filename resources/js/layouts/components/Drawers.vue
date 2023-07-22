@@ -1,4 +1,15 @@
 <template>
+  <!-- <v-app-bar elevation="2">
+    <v-app-bar-nav-icon
+      style="position: fixed"
+      variant="text"
+      @click.stop="railLeft = !railLeft"
+      class="text-white button-drawer"
+    ></v-app-bar-nav-icon>
+    <template v-slot:append>
+      <v-btn icon="mdi-dots-vertical" @click.stop="rail = !rail"></v-btn>
+    </template>
+  </v-app-bar> -->
   <!-- 👉 Left Drawer -->
   <v-navigation-drawer
     v-model="drawerleft"
@@ -7,7 +18,6 @@
     @click="railLeft = false"
     location="left"
     width="330"
-    style="position: fixed"
   >
     <template v-slot:prepend style="padding: 50px">
       <v-container fluid>
@@ -195,6 +205,21 @@ export default {
         this.rail = !this.rail;
       }, 500);
     },
+    // openDrawer(type) {
+    //   switch (type) {
+    //     case "left":
+    //       this.drawerleft = true;
+    //       this.railLeft = !this.railLeft;
+    //       break;
+    //     case "right":
+    //       this.drawer = true;
+    //       this.rail = !this.rail;
+    //       break;
+    //     default:
+    //       this.drawerleft = true;
+    //       break;
+    //   }
+    // },
   },
 };
 </script>

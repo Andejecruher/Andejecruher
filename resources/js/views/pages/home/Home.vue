@@ -4,7 +4,9 @@
     <Banner />
     <History :statistics="statistics" :time="200" />
     <Services :title="title" :services="services" />
-    <TimeLine />
+    <TimeLine :education="education" :works="works" />
+    <FormContact />
+    <ContactFormCard />
   </VCol>
 </template>
 
@@ -13,6 +15,7 @@ import Banner from "./Banner.vue";
 import History from "./History.vue";
 import Services from "./Services.vue";
 import TimeLine from "./TimeLines.vue";
+import FormContact from "../../../components/FormContact.vue";
 
 export default {
   components: {
@@ -20,6 +23,7 @@ export default {
     History,
     Services,
     TimeLine,
+    FormContact,
   },
   data() {
     return {
@@ -46,6 +50,42 @@ export default {
         { nombre: "Proyectos completados", porcentaje: 1 },
         { nombre: "Honores y premios", porcentaje: 2 },
         // Agrega más estadísticas aquí si lo deseas
+      ],
+      education: [
+        {
+          name: "Universidad IEU",
+          subname: "Ingenieria en desarrollo de software",
+          description:
+            "Actualmente, me encuentro inmerso en mi formación académica en la Universidad IEU, cursando con entusiasmo la carrera de Ingeniería en Desarrollo de Software. Estoy emocionado por la oportunidad de adquirir conocimientos técnicos y habilidades prácticas que me permitan destacar en el mundo del desarrollo de software.",
+          date: "10 / 09 / 2022 - Actualidad",
+          titleBtn: "Diploma",
+        },
+        {
+          name: "CBTis 169",
+          subname: "Técnico en Informática",
+          description:
+            "Durante mi educación en el CBTis 169, tuve la oportunidad de explorar mi pasión por la tecnología y desarrollar habilidades clave que han dejado una huella significativa en mi camino académico. Uno de los momentos más destacados de mi experiencia fue la emocionante participación en concursos de tecnología a nivel internacional, donde tuvimos el honor de representar a México en Santiago de Chile.",
+          date: "2010 - 2013",
+          titleBtn: "Diploma",
+        },
+      ],
+      works: [
+        {
+          name: "Full Stack Developer",
+          subname: "TheRocketCode",
+          description:
+            "Como Full Stack Developer en TheRocketCode, mi rol se centró en el desarrollo de funcionalidades para aplicaciones web utilizando React.js. Un logro destacado fue la migración exitosa del cotizador de precios de Next.js a React.js, optimizando la experiencia del usuario. Además, contribuí en la construcción de una API sólida con Node.js, Express y MongoDB para una comunicación eficiente entre el frontend y backend. ",
+          date: "05/2022 - 04/2023",
+          titleBtn: "Reservar",
+        },
+        {
+          name: "Diseñadores web",
+          subname: "Creativa Softline",
+          description:
+            "Como Diseñador Web en Creativa Softline, fui responsable de liderar la creación y desarrollo del concepto para diversos sitios web. Mi rol abarcó desde el diseño inicial hasta la implementación, donde utilicé herramientas como Skeleton, Bootstrap y Boilerplate para crear páginas web visualmente atractivas y altamente funcionales.",
+          date: "2016 - 2018",
+          titleBtn: "Reservar",
+        },
       ],
     };
   },

@@ -19,7 +19,7 @@
           <v-col cols="12" md="8" xs="12">
             <div class="text-content">
               <v-card-title class="text-monospace text-h"
-                >Descubre mi Asombroso ¡Espacio de Arte!
+                >Descubre mi asombroso ¡Espacio de arte!
               </v-card-title>
               <v-card-subtitle class="text-d mt-4">
                 <p class="code-line">
