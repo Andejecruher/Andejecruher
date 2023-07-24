@@ -5,8 +5,15 @@
 
     <!-- Cards con los servicios -->
     <v-row>
-      <v-col v-for="(service, index) in services" :key="index" cols="4" xs="12">
-        <v-card class="mx-auto" max-width="500">
+      <v-col
+        v-for="(service, index) in services"
+        :key="index"
+        cols="12"
+        lg="4"
+        md="12"
+        xs="12"
+      >
+        <v-card class="mx-auto">
           <v-card-subtitle class="pt-4">
             <h3 class="subtitle">{{ service.title }}</h3>
           </v-card-subtitle>

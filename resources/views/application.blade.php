@@ -17,7 +17,7 @@
       <div class="spinner"></div>
       <div class="txt">Andejecruher</div>
       <div class="txt">
-        < / >
+        < />
       </div>
     </div>
   </div>

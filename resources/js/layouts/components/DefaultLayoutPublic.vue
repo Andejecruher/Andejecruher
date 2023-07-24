@@ -38,4 +38,23 @@ import Footer from "./Footer.vue";
   min-block-size: 100vh;
   opacity: 0.1; /* Opacidad del fondo */
 }
+
+/* Cambiar el estilo del scroll vertical */
+body::-webkit-scrollbar {
+  inline-size: 10px; /* Grosor del scroll */
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: none; /* Color del thumb (el "botón" del scroll) */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #696cff; /* Color del thumb cuando se pasa el cursor sobre él */
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: none;
+}
 </style>

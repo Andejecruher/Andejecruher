@@ -1,32 +1,37 @@
 <template>
-  <!-- <v-app-bar elevation="2">
-    <v-app-bar-nav-icon
-      style="position: fixed"
-      variant="text"
-      @click.stop="railLeft = !railLeft"
-      class="text-white button-drawer"
-    ></v-app-bar-nav-icon>
-    <template v-slot:append>
-      <v-btn icon="mdi-dots-vertical" @click.stop="rail = !rail"></v-btn>
-    </template>
-  </v-app-bar> -->
   <!-- 👉 Left Drawer -->
   <v-navigation-drawer
+    :permanent="!this.$vuetify.display.mobile"
+    :temporary="this.$vuetify.display.mobile"
     v-model="drawerleft"
     :rail="railLeft"
-    permanent
     @click="railLeft = false"
     location="left"
     width="330"
+    style="position: fixed"
   >
     <template v-slot:prepend style="padding: 50px">
       <v-container fluid>
         <v-row justify="end">
-          <v-app-bar-nav-icon
-            variant="text"
-            @click.stop="railLeft = !railLeft"
-            class="text-white button-drawer"
-          ></v-app-bar-nav-icon>
+          <template v-if="railLeft">
+            <!-- Icono del botón cuando el drawer está cerrado -->
+            <v-app-bar-nav-icon
+              transition="slide-x-reverse-transition"
+              variant="text"
+              @click.stop="railLeft = !railLeft"
+              class="text-white button-drawer"
+            ></v-app-bar-nav-icon>
+          </template>
+          <template v-else>
+            <!-- Icono alternativo cuando el drawer está abierto -->
+            <v-btn
+              transition="slide-x-reverse-transition"
+              icon="mdi-close"
+              variant="text"
+              @click.stop="railLeft = !railLeft"
+              class="text-white button-drawer"
+            ></v-btn>
+          </template>
         </v-row>
         <v-row justify="center" no-gutters="">
           <v-col cols="12" sm="12" md="12" v-show="!railLeft">
@@ -77,9 +82,10 @@
 
   <!-- 👉 Right Drawer -->
   <v-navigation-drawer
+    :permanent="!this.$vuetify.display.mobile"
+    :temporary="this.$vuetify.display.mobile"
     v-model="drawer"
     :rail="rail"
-    permanent
     @click="rail = false"
     location="right"
     style="position: fixed"
@@ -143,6 +149,20 @@
       </v-row>
     </v-container>
   </v-navigation-drawer>
+  <v-app-bar
+    elevation="2"
+    style="position: fixed"
+    v-if="this.$vuetify.display.mobile"
+  >
+    <v-app-bar-nav-icon
+      variant="text"
+      @click="openDrawer('left')"
+      class="text-white button-drawer"
+    ></v-app-bar-nav-icon>
+    <template v-slot:append>
+      <v-btn icon="mdi-dots-vertical" @click="openDrawer('right')"></v-btn>
+    </template>
+  </v-app-bar>
 </template>
 
 <script>
@@ -154,6 +174,9 @@ import Skills from "./Skills.vue";
 import Framework from "./Frameworks.vue";
 
 export default {
+  props: {
+    screenSize: Object,
+  },
   components: {
     DataProfile,
     ResidentData,
@@ -205,21 +228,23 @@ export default {
         this.rail = !this.rail;
       }, 500);
     },
-    // openDrawer(type) {
-    //   switch (type) {
-    //     case "left":
-    //       this.drawerleft = true;
-    //       this.railLeft = !this.railLeft;
-    //       break;
-    //     case "right":
-    //       this.drawer = true;
-    //       this.rail = !this.rail;
-    //       break;
-    //     default:
-    //       this.drawerleft = true;
-    //       break;
-    //   }
-    // },
+    openDrawer(type) {
+      switch (type) {
+        case "left":
+          this.drawerleft = true;
+          this.railLeft = !this.railLeft;
+          break;
+        case "right":
+          this.drawer = true;
+          this.rail = !this.rail;
+          break;
+        default:
+          break;
+      }
+    },
+  },
+  mounted() {
+    console.log(this.$vuetify.display.mobile);
   },
 };
 </script>

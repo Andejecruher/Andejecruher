@@ -11,7 +11,6 @@
     </v-footer>
   </VCol>
 </template>
-
 <style>
 .floating-footer {
   border-radius: 15px;
