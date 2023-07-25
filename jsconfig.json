@@ -3,8 +3,8 @@
     "vite.config.*",
     "env.d.js",
     "shims.d.js",
-    "resources/js/**/*",
-    "resources/js/**/*.vue",
+    "src/**/*",
+    "src/**/*.vue",
     "themeConfig.js",
     "auto-imports.d.js",
     "componenjs.d.js"
@@ -12,7 +12,7 @@
   "exclude": [
     "dist",
     "node_modules",
-    "resources/js/@iconify/*"
+    "src/@iconify/*"
   ],
   "compilerOptions": {
     "baseUrl": "./",
@@ -22,28 +22,25 @@
     "jsx": "preserve",
     "paths": {
       "@/*": [
-        "resources/js/*"
+        "src/*"
       ],
       "@layouts/*": [
-        "resources/js/@layouts/*"
+        "src/@layouts/*"
       ],
       "@layouts": [
-        "resources/js/@layouts"
+        "src/@layouts"
       ],
       "@core/*": [
-        "resources/js/@core/*"
+        "src/@core/*"
       ],
       "@core": [
-        "resources/js/@core"
+        "src/@core"
       ],
       "@images/*": [
-        "resources/images/*"
+        "src/assets/images/*"
       ],
       "@styles/*": [
-        "resources/styles/*"
-      ],
-      "@core-scss/*": [
-        "resources/styles/@core"
+        "src/styles/*"
       ]
     },
     "types": [

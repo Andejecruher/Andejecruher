@@ -21,7 +21,7 @@ module.exports = {
     'vue',
     'regex',
   ],
-  ignorePatterns: ['resources/js/@iconify/*.js', 'node_modules', 'dist'],
+  ignorePatterns: ['src/@iconify/*.js', 'node_modules', 'dist'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -183,7 +183,7 @@ module.exports = {
         {
           regex: '@/styles',
           replacement: '@styles',
-          message: 'Use \'@styles\' path alias for importing styles from \'resources/js/styles\'',
+          message: 'Use \'@styles\' path alias for importing styles from \'src/styles\'',
         },
 
         // {
@@ -209,7 +209,7 @@ module.exports = {
         {
           regex: 'import axios from \'axios\'',
           replacement: 'import axios from \'@axios\'',
-          message: 'Use axios instances created in \'resources/js/plugin/axios.js\' instead of unconfigured axios',
+          message: 'Use axios instances created in \'src/plugin/axios.js\' instead of unconfigured axios',
           files: {
             ignore: '^.*plugins/axios.js.*',
           },
@@ -224,7 +224,7 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.js', '.js', '.jsx', '.jsx', '.mjs', '.png', '.jpg'],
-      }, alias: { 'extensions': ['.ts', '.js', '.tsx', '.jsx', '.mjs'], 'map': [["@", "./resources/js"], ["@core", "./resources/js/@core"], ["@layouts", "./resources/js/@layouts"], ["@images", "./resources/images/"], ["@styles", "./resources/styles/"], ["@configured-variables", "./resources/styles/variables/_template.scss"], ["@axios", "./resources/js/plugins/axios"], ["apexcharts", "node_modules/apexcharts-clevision"]] },
+      }, alias: { 'extensions': ['.ts', '.js', '.tsx', '.jsx', '.mjs'], 'map': [["@", "./src"], ["@core", "./src/@core"], ["@layouts", "./src/@layouts"], ["@images", "./src/assets/images/"], ["@styles", "./src/styles/"], ["@configured-variables", "./src/styles/variables/_template.scss"], ["@axios", "./src/plugins/axios"], ["apexcharts", "node_modules/apexcharts-clevision"]] },
     },
   },
 }
