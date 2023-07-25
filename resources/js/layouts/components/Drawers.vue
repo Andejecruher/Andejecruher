@@ -62,8 +62,10 @@
       <v-row>
         <v-col cols="12" class="text-center mt-2">
           <VBtn variant="text" width="100%">
-            <span class="text-white">Descargar CV</span>
-            <v-icon right class="text-white">mdi-download</v-icon>
+            <a variant="text" width="100%" :href="pdfURL" target="_blank">
+              <span class="text-white">Descargar CV</span>
+              <v-icon right class="text-white">mdi-download</v-icon>
+            </a>
           </VBtn>
         </v-col>
       </v-row>
@@ -187,6 +189,8 @@ export default {
   },
   data() {
     return {
+      pdfURL:
+        "https://drive.google.com/file/d/1wTbaGjUQh4y74WPv7cdFur_Ch2fc7nUj/view?usp=drive_link",
       drawer: true,
       drawerleft: true,
       rail: true,
@@ -243,9 +247,7 @@ export default {
       }
     },
   },
-  mounted() {
-    console.log(this.$vuetify.display.mobile);
-  },
+  mounted() {},
 };
 </script>
 

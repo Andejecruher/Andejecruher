@@ -13,14 +13,12 @@ import VueWriter from "vue-writer";
 
 loadFonts();
 
-setTimeout(() => {
-  const app = createApp(App);
-  // Use plugins
-  app.use(VueWriter);
-  app.use(vuetify);
-  app.use(createPinia());
-  app.use(router);
+const app = createApp(App);
+// Use plugins
+app.use(VueWriter);
+app.use(vuetify);
+app.use(createPinia());
+app.use(router);
 
-  // Mount vue app
-  app.mount("#app");
-}, 1800);
+// Mount vue app
+app.mount("#app");

@@ -37,15 +37,15 @@
                   >
                 </p>
               </v-card-subtitle>
-              <v-card-actions class="mt-5">
+              <!-- <v-card-actions class="mt-5">
                 <VBtn class="ms-2" variant="tonal" size="large">
                   EXPLORE NOW
                 </VBtn>
-              </v-card-actions>
+              </v-card-actions> -->
             </div>
           </v-col>
           <v-col cols="12" md="4" xs="12">
-            <v-avatar size="300" rounded="0">
+            <v-avatar size="300" rounded="0" class="avatar-banner">
               <v-img
                 src="https://i.postimg.cc/637HJNFM/andejecruher-removebg-preview.png"
               ></v-img>
@@ -133,5 +133,50 @@ export default {
 /* Estilos adicionales para el ícono del código */
 .primary-icon i {
   font-style: normal; /* Asegura que el texto del ícono no sea cursiva */
+}
+
+/* Estilos para pantallas 768px o menos */
+@media (max-width: 768px) {
+  .text-content {
+    text-align: center;
+  }
+
+  .text-d {
+    margin-inline-start: 10%;
+  }
+
+  .text-h {
+    font-size: 2.5rem !important;
+    margin-block-start: 10%;
+  }
+
+  .avatar-banner {
+    inline-size: 100% !important;
+    inline-size: 200px;
+    inset-block-start: 18%;
+  }
+}
+
+/* Estilos para pantallas 768px o menos */
+@media (max-width: 425px) {
+  .text-content {
+    text-align: center;
+  }
+
+  .text-d {
+    font-size: 0.8rem !important;
+    margin-inline-start: 0%;
+  }
+
+  .text-h {
+    font-size: 1.5rem !important;
+    margin-block-start: 25%;
+  }
+
+  .avatar-banner {
+    inline-size: 100% !important;
+    inline-size: 150px;
+    inset-block-start: 20%;
+  }
 }
 </style>

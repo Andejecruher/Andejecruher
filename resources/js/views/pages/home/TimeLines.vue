@@ -26,21 +26,20 @@
                 <v-card-item>
                   <v-card-title>
                     <v-row>
-                      <v-col cols="12" md="6" xs="6">
-                        <span class="text-h6">{{ item.name }}</span>
-
-                        <v-icon
-                          color="error"
-                          icon="mdi-circle-medium"
-                          size="small"
-                        ></v-icon>
-                      </v-col>
-                      <v-col cols="12" md="6" xs="6">
+                      <v-col cols="12" lg="12" md="12" xs="12">
                         <div class="dateChip">
                           <v-chip-group>
                             <v-chip>{{ item.date }}</v-chip>
                           </v-chip-group>
                         </div>
+                      </v-col>
+                      <v-col cols="12" lg="12" md="12" xs="12">
+                        <span class="text-h6">{{ item.name }}</span>
+                        <v-icon
+                          color="error"
+                          icon="mdi-circle-medium"
+                          size="small"
+                        ></v-icon>
                       </v-col>
                     </v-row>
                   </v-card-title>
@@ -91,21 +90,20 @@
                 <v-card-item>
                   <v-card-title>
                     <v-row>
-                      <v-col cols="12" md="6" xs="6">
-                        <span class="text-h6">{{ item.name }}</span>
-
-                        <v-icon
-                          color="error"
-                          icon="mdi-circle-medium"
-                          size="small"
-                        ></v-icon>
-                      </v-col>
-                      <v-col cols="12" md="6" xs="6">
+                      <v-col cols="12" lg="12" md="12" xs="12">
                         <div class="dateChip">
                           <v-chip-group>
                             <v-chip>{{ item.date }}</v-chip>
                           </v-chip-group>
                         </div>
+                      </v-col>
+                      <v-col cols="12" lg="12" md="12" xs="12">
+                        <span class="text-h6">{{ item.name }}</span>
+                        <v-icon
+                          color="error"
+                          icon="mdi-circle-medium"
+                          size="small"
+                        ></v-icon>
                       </v-col>
                     </v-row>
                   </v-card-title>
