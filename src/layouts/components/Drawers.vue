@@ -1,138 +1,193 @@
 <template>
   <!-- 👉 Left Drawer -->
-  <v-navigation-drawer
-    :permanent="!this.$vuetify.display.mobile"
-    :temporary="this.$vuetify.display.mobile"
+  <VNavigationDrawer
     v-model="drawerleft"
+    :permanent="!$vuetify.display.mobile"
+    :temporary="$vuetify.display.mobile"
     :rail="railLeft"
-    @click="railLeft = false"
     location="left"
     width="330"
-    style="position: fixed"
+    style="position: fixed;"
+    @click="railLeft = false"
   >
-    <template v-slot:prepend style="padding: 50px">
-      <v-container fluid>
-        <v-row justify="end">
+    <template
+      #prepend
+      style="padding: 50px;"
+    >
+      <VContainer fluid>
+        <VRow justify="end">
           <template v-if="railLeft">
             <!-- Icono del botón cuando el drawer está cerrado -->
-            <v-app-bar-nav-icon
+            <VAppBarNavIcon
               transition="slide-x-reverse-transition"
               variant="text"
-              @click.stop="railLeft = !railLeft"
               class="text-white button-drawer"
-            ></v-app-bar-nav-icon>
+              @click.stop="railLeft = !railLeft"
+            />
           </template>
           <template v-else>
             <!-- Icono alternativo cuando el drawer está abierto -->
-            <v-btn
+            <VBtn
               transition="slide-x-reverse-transition"
               icon="mdi-close"
               variant="text"
-              @click.stop="railLeft = !railLeft"
               class="text-white button-drawer"
-            ></v-btn>
-          </template>
-        </v-row>
-        <v-row justify="center" no-gutters="">
-          <v-col cols="12" sm="12" md="12" v-show="!railLeft">
-            <DataProfile
-              :nombreProp="nombre"
-              :descripcionProp="descripcion"
-              :avatarProp="avatar"
+              @click.stop="railLeft = !railLeft"
             />
-          </v-col>
-        </v-row>
-      </v-container>
-      <v-divider></v-divider>
+          </template>
+        </VRow>
+        <VRow
+          justify="center"
+          no-gutters=""
+        >
+          <VCol
+            v-show="!railLeft"
+            cols="12"
+            sm="12"
+            md="12"
+          >
+            <DataProfile
+              :nombre-prop="nombre"
+              :descripcion-prop="descripcion"
+              :avatar-prop="avatar"
+            />
+          </VCol>
+        </VRow>
+      </VContainer>
+      <VDivider />
     </template>
 
-    <v-container v-show="!railLeft">
+    <VContainer v-show="!railLeft">
       <ResidentData
-        :residenciaProp="residencia"
-        :ciudadProp="ciudad"
-        :edadProp="edad"
+        :residencia-prop="residencia"
+        :ciudad-prop="ciudad"
+        :edad-prop="edad"
       />
-      <v-divider></v-divider>
-      <Lenguajes :lenguajes="listaLenguajes" :time="200" />
-      <v-divider></v-divider>
-      <Skills :habilidades="listaHabilidades" :time="200" />
-      <v-divider></v-divider>
+      <VDivider />
+      <Lenguajes
+        :lenguajes="listaLenguajes"
+        :time="200"
+      />
+      <VDivider />
+      <Skills
+        :habilidades="listaHabilidades"
+        :time="200"
+      />
+      <VDivider />
       <Framework />
-      <v-divider></v-divider>
-      <v-row>
-        <v-col cols="12" class="text-center mt-2">
-          <VBtn variant="text" width="100%">
-            <a variant="text" width="100%" :href="pdfURL" target="_blank">
+      <VDivider />
+      <VRow>
+        <VCol
+          cols="12"
+          class="text-center mt-2"
+        >
+          <VBtn
+            variant="text"
+            width="100%"
+          >
+            <a
+              variant="text"
+              width="100%"
+              :href="pdfURL"
+              target="_blank"
+            >
               <span class="text-white">Descargar CV</span>
-              <v-icon right class="text-white">mdi-download</v-icon>
+              <VIcon
+                right
+                class="text-white"
+              >mdi-download</VIcon>
             </a>
           </VBtn>
-        </v-col>
-      </v-row>
-    </v-container>
+        </VCol>
+      </VRow>
+    </VContainer>
 
-    <template v-slot:append>
+    <template #append>
       <!-- auth providers -->
-      <v-divider></v-divider>
+      <VDivider />
       <VRow>
-        <VCol cols="12" class="text-center">
+        <VCol
+          cols="12"
+          class="text-center"
+        >
           <AuthProvider />
         </VCol>
       </VRow>
     </template>
-  </v-navigation-drawer>
+  </VNavigationDrawer>
 
   <!-- 👉 Right Drawer -->
-  <v-navigation-drawer
-    :permanent="!this.$vuetify.display.mobile"
-    :temporary="this.$vuetify.display.mobile"
+  <VNavigationDrawer
     v-model="drawer"
+    :permanent="!$vuetify.display.mobile"
+    :temporary="$vuetify.display.mobile"
     :rail="rail"
-    @click="rail = false"
     location="right"
-    style="position: fixed"
+    style="position: fixed;"
+    @click="rail = false"
   >
-    <template v-slot:prepend>
-      <v-row justify="left" style="padding: 20px">
+    <template #prepend>
+      <VRow
+        justify="left"
+        style="padding: 20px;"
+      >
         <template v-if="rail">
           <!-- Icono del botón cuando el drawer está cerrado -->
-          <v-app-bar-nav-icon
+          <VAppBarNavIcon
             transition="slide-x-reverse-transition"
             variant="text"
-            @click.stop="rail = !rail"
             class="text-white button-drawer"
-          ></v-app-bar-nav-icon>
+            @click.stop="rail = !rail"
+          />
         </template>
         <template v-else>
           <!-- Icono alternativo cuando el drawer está abierto -->
-          <v-btn
+          <VBtn
             transition="slide-x-reverse-transition"
             icon="mdi-close"
             variant="text"
-            @click.stop="rail = !rail"
             class="text-white button-drawer"
-          ></v-btn>
+            @click.stop="rail = !rail"
+          />
         </template>
-      </v-row>
-      <v-divider></v-divider>
+      </VRow>
+      <VDivider />
     </template>
 
-    <v-container fluid>
-      <v-row justify="center" no-gutters>
-        <v-expand-x-transition>
-          <v-col cols="12" sm="12" md="12" v-show="rail">
-            <p class="section-title">{{ selectedItem }}</p>
-          </v-col>
-        </v-expand-x-transition>
-      </v-row>
-    </v-container>
+    <VContainer fluid>
+      <VRow
+        justify="center"
+        no-gutters
+      >
+        <VExpandXTransition>
+          <VCol
+            v-show="rail"
+            cols="12"
+            sm="12"
+            md="12"
+          >
+            <p class="section-title">
+              {{ selectedItem }}
+            </p>
+          </VCol>
+        </VExpandXTransition>
+      </VRow>
+    </VContainer>
 
-    <v-container fluid class="content-menu">
-      <v-row justify="center">
-        <v-expand-transition>
-          <v-col cols="12" sm="12" md="12" v-show="!rail">
-            <v-list>
-              <v-list-item
+    <VContainer
+      fluid
+      class="content-menu"
+    >
+      <VRow justify="center">
+        <VExpandTransition>
+          <VCol
+            v-show="!rail"
+            cols="12"
+            sm="12"
+            md="12"
+          >
+            <VList>
+              <VListItem
                 v-for="(item, i) in items"
                 :key="i"
                 :value="item"
@@ -140,45 +195,45 @@
                 rounded="xl"
                 @click="selectItem(item.text)"
               >
-                <template v-slot:prepend>
-                  <v-icon :icon="item.icon"></v-icon>
+                <template #prepend>
+                  <VIcon :icon="item.icon" />
                 </template>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-col>
-        </v-expand-transition>
-      </v-row>
-    </v-container>
-  </v-navigation-drawer>
-  <v-app-bar
+                <VListItemTitle v-text="item.text" />
+              </VListItem>
+            </VList>
+          </VCol>
+        </VExpandTransition>
+      </VRow>
+    </VContainer>
+  </VNavigationDrawer>
+  <VAppBar
+    v-if="$vuetify.display.mobile"
     elevation="2"
-    style="position: fixed"
-    v-if="this.$vuetify.display.mobile"
+    style="position: fixed;"
   >
-    <v-app-bar-nav-icon
+    <VAppBarNavIcon
       variant="text"
-      @click="openDrawer('left')"
       class="text-white button-drawer"
-    ></v-app-bar-nav-icon>
-    <template v-slot:append>
-      <v-btn icon="mdi-dots-vertical" @click="openDrawer('right')"></v-btn>
+      @click="openDrawer('left')"
+    />
+    <template #append>
+      <VBtn
+        icon="mdi-dots-vertical"
+        @click="openDrawer('right')"
+      />
     </template>
-  </v-app-bar>
+  </VAppBar>
 </template>
 
 <script>
-import AuthProvider from "@/views/pages/authentication/AuthProvider.vue";
-import DataProfile from "./DataProfile.vue";
-import ResidentData from "./ResidentData.vue";
-import Lenguajes from "./Lenguajes.vue";
-import Skills from "./Skills.vue";
-import Framework from "./Frameworks.vue";
+import AuthProvider from "@/views/pages/authentication/AuthProvider.vue"
+import DataProfile from "./DataProfile.vue"
+import Framework from "./Frameworks.vue"
+import Lenguajes from "./Lenguajes.vue"
+import ResidentData from "./ResidentData.vue"
+import Skills from "./Skills.vue"
 
 export default {
-  props: {
-    screenSize: Object,
-  },
   components: {
     DataProfile,
     ResidentData,
@@ -186,6 +241,9 @@ export default {
     Skills,
     Framework,
     AuthProvider,
+  },
+  props: {
+    screenSize: Object,
   },
   data() {
     return {
@@ -213,42 +271,44 @@ export default {
         { nombre: "PHP", porcentaje: 100 },
         { nombre: "C#", porcentaje: 100 },
         { nombre: "MySql", porcentaje: 100 },
+
         // Puedes agregar más habilidades aquí
       ],
       items: [
         { text: "Inicio", icon: "mdi-home" },
         { text: "Portafolio", icon: "mdi-briefcase" },
         { text: "Blog", icon: "mdi-post-outline" },
-        { text: "Contact", icon: "mdi-contacts" },
+        { text: "Contacto", icon: "mdi-contacts" },
       ],
       activo: false,
       selectedItem: "Inicio",
-    };
+    }
   },
+  mounted() {},
   methods: {
     selectItem(item) {
-      this.selectedItem = item;
+      this.selectedItem = item
+      this.$router.push(item)
       setTimeout(() => {
-        this.rail = !this.rail;
-      }, 500);
+        this.rail = !this.rail
+      }, 500)
     },
     openDrawer(type) {
       switch (type) {
-        case "left":
-          this.drawerleft = true;
-          this.railLeft = !this.railLeft;
-          break;
-        case "right":
-          this.drawer = true;
-          this.rail = !this.rail;
-          break;
-        default:
-          break;
+      case "left":
+        this.drawerleft = true
+        this.railLeft = !this.railLeft
+        break
+      case "right":
+        this.drawer = true
+        this.rail = !this.rail
+        break
+      default:
+        break
       }
     },
   },
-  mounted() {},
-};
+}
 </script>
 
 <style scope>
