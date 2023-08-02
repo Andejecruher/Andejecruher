@@ -275,8 +275,7 @@ export default {
         // Puedes agregar más habilidades aquí
       ],
       items: [
-        { text: "Inicio", icon: "mdi-home" },
-        { text: "Portafolio", icon: "mdi-briefcase" },
+        { text: "Inicio", icon: "mdi-home" }, 
         { text: "Blog", icon: "mdi-post-outline" },
         { text: "Contacto", icon: "mdi-contacts" },
       ],
@@ -284,7 +283,6 @@ export default {
       selectedItem: "Inicio",
     }
   },
-  mounted() {},
   methods: {
     selectItem(item) {
       this.selectedItem = item

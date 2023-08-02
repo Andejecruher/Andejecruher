@@ -7,7 +7,6 @@
     order="3"
   >
     <FormContact />
-    <ContactFormCard />
   </VCol>
 </template>
 

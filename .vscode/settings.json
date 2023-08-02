@@ -90,5 +90,6 @@
         "borderStyle": "solid"
       }
     ]
-  }
+  },
+  "editor.fontSize": 16
 }
