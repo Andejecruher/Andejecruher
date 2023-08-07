@@ -14,16 +14,16 @@ loadFonts()
 
 
 setTimeout(() => {
-    // Create vue app
-const app = createApp(App)
+  // Create vue app
+  const app = createApp(App)
 
 
-// Use plugins
-app.use(vuetify)
-app.use(createPinia())
-app.use(router)
+  // Use plugins
+  app.use(vuetify)
+  app.use(createPinia())
+  app.use(router)
 
-// Mount vue app
-app.mount('#app')
+  // Mount vue app
+  app.mount('#app')
 
-}, 1000);
+}, 1000)

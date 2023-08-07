@@ -12,50 +12,52 @@ const router = createRouter({
           path: 'inicio',
           component: () => import('../views/pages/home/Home.vue'),
         },
-        {
-          path: 'portafolio',
-          component: () => import('../views/pages/portafolio/Portafolio.vue'),
-        },
-        {
-          path: 'blog',
-          component: () => import('../views/pages/blog/Blog.vue'),
-        },
-        {
-          path: 'blog/:id',
-          component: () => import('../views/pages/blog/Post.vue'),
-        },
+
+        // {
+        //   path: 'portafolio',
+        //   component: () => import('../views/pages/portafolio/Portafolio.vue'),
+        // },
+        // {
+        //   path: 'blog',
+        //   component: () => import('../views/pages/blog/Blog.vue'),
+        // },
+        // {
+        //   path: 'blog/:id',
+        //   component: () => import('../views/pages/blog/Post.vue'),
+        // },
         {
           path: 'contacto',
           component: () => import('../views/pages/contact/Contact.vue'),
         },
-        {
-          path: 'dashboard',
-          component: () => import('../pages/dashboard.vue'),
-        },
-        {
-          path: 'account-settings',
-          component: () => import('../pages/account-settings.vue'),
-        },
-        {
-          path: 'typography',
-          component: () => import('../pages/typography.vue'),
-        },
-        {
-          path: 'icons',
-          component: () => import('../pages/icons.vue'),
-        },
-        {
-          path: 'cards',
-          component: () => import('../pages/cards.vue'),
-        },
-        {
-          path: 'tables',
-          component: () => import('../pages/tables.vue'),
-        },
-        {
-          path: 'form-layouts',
-          component: () => import('../pages/form-layouts.vue'),
-        },
+
+        // {
+        //   path: 'dashboard',
+        //   component: () => import('../pages/dashboard.vue'),
+        // },
+        // {
+        //   path: 'account-settings',
+        //   component: () => import('../pages/account-settings.vue'),
+        // },
+        // {
+        //   path: 'typography',
+        //   component: () => import('../pages/typography.vue'),
+        // },
+        // {
+        //   path: 'icons',
+        //   component: () => import('../pages/icons.vue'),
+        // },
+        // {
+        //   path: 'cards',
+        //   component: () => import('../pages/cards.vue'),
+        // },
+        // {
+        //   path: 'tables',
+        //   component: () => import('../pages/tables.vue'),
+        // },
+        // {
+        //   path: 'form-layouts',
+        //   component: () => import('../pages/form-layouts.vue'),
+        // },
       ],
     },
     {
@@ -71,8 +73,26 @@ const router = createRouter({
           component: () => import('../pages/register.vue'),
         },
         {
+          path: 'forgot-password',
+          component: () => import('../pages/forgot-password.vue'),
+        },
+        {
           path: '/:pathMatch(.*)*',
           component: () => import('../pages/[...all].vue'),
+        },
+      ],
+    },
+    {
+      path: '/dashboard',
+      component: () => import('../layouts/dashboard.vue'),
+      children: [
+        {
+          path: 'account-settings',
+          component: () => import('../pages/account-settings.vue'),
+        },
+        {
+          path: 'typography',
+          component: () => import('../pages/typography.vue'),
         },
       ],
     },

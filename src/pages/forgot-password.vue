@@ -6,8 +6,6 @@ const form = ref({
   password: '',
   remember: false,
 })
-
-const isPasswordVisible = ref(false)
 </script>
 
 <template>
@@ -24,10 +22,10 @@ const isPasswordVisible = ref(false)
 
       <VCardText class="pt-2">
         <h5 class="text-h5 mb-1">
-          Bienvenido! 👋🏻
+          Recuperar contraseña! 👋🏻
         </h5>
         <p class="mb-0">
-          Ingresa tus datos para continuar
+          Ingresa tu correo electronico para continuar
         </p>
       </VCardText>
 
@@ -44,54 +42,14 @@ const isPasswordVisible = ref(false)
                 type="email"
               />
             </VCol>
-
-            <!-- password -->
             <VCol cols="12">
-              <VTextField
-                v-model="form.password"
-                label="Password"
-                placeholder="············"
-                :type="isPasswordVisible ? 'text' : 'password'"
-                :append-inner-icon="isPasswordVisible ? 'bx-hide' : 'bx-show'"
-                @click:append-inner="isPasswordVisible = !isPasswordVisible"
-              />
-
-              <!-- remember me checkbox -->
-              <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
-                <VCheckbox
-                  v-model="form.remember"
-                  label="Recuerdame"
-                />
-
-                <RouterLink
-                  class="text-primary ms-2 mb-1"
-                  to="forgot-password"
-                >
-                  Olvidaste tu contraseñas?
-                </RouterLink>
-              </div>
-
               <!-- login button -->
               <VBtn
                 block
                 type="submit"
               >
-                Login
+                Recuperar contraseña 
               </VBtn>
-            </VCol>
-
-            <!-- create account -->
-            <VCol
-              cols="12"
-              class="text-center text-base"
-            >
-              <span>Nuevo en la plataforma?</span>
-              <RouterLink
-                class="text-primary ms-2"
-                to="/register"
-              >
-                Crea una cuenta
-              </RouterLink>
             </VCol>
 
             <VCol

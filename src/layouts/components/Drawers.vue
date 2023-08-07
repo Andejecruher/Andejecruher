@@ -276,7 +276,8 @@ export default {
       ],
       items: [
         { text: "Inicio", icon: "mdi-home" }, 
-        { text: "Blog", icon: "mdi-post-outline" },
+
+        // { text: "Blog", icon: "mdi-post-outline" },
         { text: "Contacto", icon: "mdi-contacts" },
       ],
       activo: false,

@@ -1,24 +1,27 @@
 <script setup>
-import Drawers from "./Drawers.vue";
-import Footer from "./Footer.vue";
+import Drawers from "./Drawers.vue"
+import Footer from "./Footer.vue"
 </script>
 
 <template>
-  <v-layout class="rounded rounded-md">
+  <VLayout class="rounded rounded-md">
     <!-- 👉 Drawers -->
 
     <Drawers />
     <!-- 👉 Content -->
-    <v-main class="d-flex align-center justify-center main-content">
-      <VRow style="padding: 10px 20px" class="vrow-content">
-        <div class="background"></div>
+    <VMain class="d-flex align-center justify-center main-content">
+      <VRow
+        style="padding: 10px 20px"
+        class="vrow-content"
+      >
+        <div class="background" />
         <!-- Div para el fondo con opacidad -->
         <slot />
         <!-- 👉 Footer -->
         <Footer />
       </VRow>
-    </v-main>
-  </v-layout>
+    </VMain>
+  </VLayout>
 </template>
 
 <style lang="scss" scope>

@@ -1,6 +1,5 @@
 <script setup>
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
-import logo from '@images/logo.svg?raw'
 
 const form = ref({
   username: '',
@@ -19,27 +18,15 @@ const isPasswordVisible = ref(false)
       max-width="448"
     >
       <VCardItem class="justify-center">
-        <template #prepend>
-          <div class="d-flex">
-            <div
-              class="d-flex text-primary"
-              v-html="logo"
-            />
-          </div>
-        </template>
-
         <VCardTitle class="text-2xl font-weight-bold">
-          sneat
+          Andejecruher
         </VCardTitle>
       </VCardItem>
 
       <VCardText class="pt-2">
         <h5 class="text-h5 mb-1">
-          Adventure starts here 🚀
+          Registra tus datos 🚀
         </h5>
-        <p class="mb-0">
-          Make your app management easy and fun!
-        </p>
       </VCardText>
 
       <VCardText>
@@ -84,11 +71,11 @@ const isPasswordVisible = ref(false)
                   for="privacy-policy"
                   style="opacity: 1;"
                 >
-                  <span class="me-1">I agree to</span>
+                  <span class="me-1">Yo acepto</span>
                   <a
                     href="javascript:void(0)"
                     class="text-primary"
-                  >privacy policy & terms</a>
+                  >los terminos de privacidad y politica</a>
                 </VLabel>
               </div>
 
@@ -96,7 +83,7 @@ const isPasswordVisible = ref(false)
                 block
                 type="submit"
               >
-                Sign up
+                Crear Cuenta
               </VBtn>
             </VCol>
 
@@ -105,12 +92,12 @@ const isPasswordVisible = ref(false)
               cols="12"
               class="text-center text-base"
             >
-              <span>Already have an account?</span>
+              <span>Ya cuentas con una cuenta?</span>
               <RouterLink
                 class="text-primary ms-2"
                 to="/login"
               >
-                Sign in instead
+                Iniciar sesion ahora
               </RouterLink>
             </VCol>
 
