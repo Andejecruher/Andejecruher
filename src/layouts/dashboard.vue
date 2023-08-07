@@ -1,11 +1,11 @@
 <script setup>
-import DefaultLayoutPublic from "./components/DefaultLayoutPublic.vue"
+import DefaultLayoutAdmin from "./components/DefaultLayoutAdmin.vue"
 </script>
 
 <template>
-  <DefaultLayoutPublic>
+  <DefaultLayoutAdmin>
     <RouterView />
-  </DefaultLayoutPublic>
+  </DefaultLayoutAdmin>
 </template>
 
 <style lang="scss">

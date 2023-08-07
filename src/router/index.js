@@ -29,35 +29,6 @@ const router = createRouter({
           path: 'contacto',
           component: () => import('../views/pages/contact/Contact.vue'),
         },
-
-        // {
-        //   path: 'dashboard',
-        //   component: () => import('../pages/dashboard.vue'),
-        // },
-        // {
-        //   path: 'account-settings',
-        //   component: () => import('../pages/account-settings.vue'),
-        // },
-        // {
-        //   path: 'typography',
-        //   component: () => import('../pages/typography.vue'),
-        // },
-        // {
-        //   path: 'icons',
-        //   component: () => import('../pages/icons.vue'),
-        // },
-        // {
-        //   path: 'cards',
-        //   component: () => import('../pages/cards.vue'),
-        // },
-        // {
-        //   path: 'tables',
-        //   component: () => import('../pages/tables.vue'),
-        // },
-        // {
-        //   path: 'form-layouts',
-        //   component: () => import('../pages/form-layouts.vue'),
-        // },
       ],
     },
     {
@@ -87,11 +58,15 @@ const router = createRouter({
       component: () => import('../layouts/dashboard.vue'),
       children: [
         {
-          path: 'account-settings',
-          component: () => import('../pages/account-settings.vue'),
+          path: 'usuarios',
+          component: () => import('../views/pages/usuarios/Usuarios.vue'),
         },
         {
-          path: 'typography',
+          path: 'categorias',
+          component: () => import('../pages/typography.vue'),
+        },
+        {
+          path: 'articulos',
           component: () => import('../pages/typography.vue'),
         },
       ],
