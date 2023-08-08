@@ -1,21 +1,35 @@
 <template>
   <!-- 👉 Transactions -->
-  <VCol cols="12" md="12" sm="12" order="3">
+  <VCol
+    cols="12"
+    md="12"
+    sm="12"
+    order="3"
+  >
     <Banner />
-    <History :statistics="statistics" :time="200" />
-    <Services :title="title" :services="services" />
-    <TimeLine :education="education" :works="works" />
+    <History
+      :statistics="statistics"
+      :time="200"
+    />
+    <Services
+      :title="title"
+      :services="services"
+    />
+    <TimeLine
+      :education="education"
+      :works="works"
+    />
     <FormContact />
     <ContactFormCard />
   </VCol>
 </template>
 
 <script>
-import Banner from "./Banner.vue";
-import History from "./History.vue";
-import Services from "./Services.vue";
-import TimeLine from "./TimeLines.vue";
-import FormContact from "../../../components/FormContact.vue";
+import FormContact from "../../../components/FormContact.vue"
+import Banner from "./Banner.vue"
+import History from "./History.vue"
+import Services from "./Services.vue"
+import TimeLine from "./TimeLines.vue"
 
 export default {
   components: {
@@ -46,9 +60,10 @@ export default {
         },
       ],
       statistics: [
-        { nombre: "Años de experiencia", porcentaje: 7 },
+        { nombre: "Años de experiencia", porcentaje: 3 },
         { nombre: "Proyectos completados", porcentaje: 1 },
         { nombre: "Honores y premios", porcentaje: 2 },
+
         // Agrega más estadísticas aquí si lo deseas
       ],
       education: [
@@ -87,7 +102,7 @@ export default {
           titleBtn: "Reservar",
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
