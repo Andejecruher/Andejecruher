@@ -55,6 +55,7 @@ const routes = [
   {
     path: "/admin",
     component: () => import("../layouts/dashboard.vue"),
+    meta: { requireAuth: true },
     children: [
       {
         path: "usuarios",
