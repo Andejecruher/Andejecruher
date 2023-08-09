@@ -1,4 +1,4 @@
-import axios from '@axios'
+import axios from 'axios'
 
 const API_BASE_URL = 'https://api.andejecruher.com/api' // Cambia esta URL a la de tu API
 
