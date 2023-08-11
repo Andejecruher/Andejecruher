@@ -1,21 +1,42 @@
 <script setup>
-import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
+import { useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/auth";
+import AuthProvider from "@/views/pages/authentication/AuthProvider.vue";
+import Swal from "sweetalert2";
 
-const form = ref({
-  email: '',
-  password: '',
-  remember: false,
-})
+const authStore = useAuthStore();
+const router = useRouter();
+const email = ref("");
+const password = ref("");
+const remember = ref(false);
 
-const isPasswordVisible = ref(false)
+const isPasswordVisible = ref(false);
+
+const login = async () => {
+  try {
+    await authStore.login(email.value, password.value, remember.value);
+    // Usar SweetAlert2 para mostrar un mensaje de éxito
+    await Swal.fire({
+      icon: "success",
+      title: "Inicio de sesión exitoso",
+      text: "¡Bienvenido!",
+    });
+    // Redireccionar a la página de inicio
+    await router.push("/admin");
+  } catch (error) {
+    // Usar SweetAlert2 para mostrar un mensaje de error
+    await Swal.fire({
+      icon: "error",
+      title: "Error de inicio de sesión",
+      text: "Credenciales inválidas. Inténtalo de nuevo.",
+    });
+  }
+};
 </script>
 
 <template>
   <div class="auth-wrapper d-flex align-center justify-center pa-4">
-    <VCard
-      class="auth-card pa-4 pt-7"
-      max-width="448"
-    >
+    <VCard class="auth-card pa-4 pt-7" max-width="448">
       <VCardItem class="justify-center">
         <VCardTitle class="text-2xl font-weight-bold">
           Andejecruher
@@ -23,21 +44,17 @@ const isPasswordVisible = ref(false)
       </VCardItem>
 
       <VCardText class="pt-2">
-        <h5 class="text-h5 mb-1">
-          Bienvenido! 👋🏻
-        </h5>
-        <p class="mb-0">
-          Ingresa tus datos para continuar
-        </p>
+        <h5 class="text-h5 mb-1">Bienvenido! 👋🏻</h5>
+        <p class="mb-0">Ingresa tus datos para continuar</p>
       </VCardText>
 
       <VCardText>
-        <VForm @submit.prevent="$router.push('/')">
+        <VForm @submit.prevent="login">
           <VRow>
             <!-- email -->
             <VCol cols="12">
               <VTextField
-                v-model="form.email"
+                v-model="email"
                 autofocus
                 placeholder="johndoe@email.com"
                 label="Email"
@@ -48,7 +65,7 @@ const isPasswordVisible = ref(false)
             <!-- password -->
             <VCol cols="12">
               <VTextField
-                v-model="form.password"
+                v-model="password"
                 label="Password"
                 placeholder="············"
                 :type="isPasswordVisible ? 'text' : 'password'"
@@ -57,57 +74,36 @@ const isPasswordVisible = ref(false)
               />
 
               <!-- remember me checkbox -->
-              <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
-                <VCheckbox
-                  v-model="form.remember"
-                  label="Recuerdame"
-                />
+              <div
+                class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4"
+              >
+                <VCheckbox v-model="remember" label="Recuerdame" />
 
-                <RouterLink
-                  class="text-primary ms-2 mb-1"
-                  to="forgot-password"
-                >
+                <RouterLink class="text-primary ms-2 mb-1" to="forgot-password">
                   Olvidaste tu contraseñas?
                 </RouterLink>
               </div>
 
               <!-- login button -->
-              <VBtn
-                block
-                type="submit"
-              >
-                Login
-              </VBtn>
+              <VBtn block type="submit"> Login </VBtn>
             </VCol>
 
             <!-- create account -->
-            <VCol
-              cols="12"
-              class="text-center text-base"
-            >
+            <VCol cols="12" class="text-center text-base">
               <span>Nuevo en la plataforma?</span>
-              <RouterLink
-                class="text-primary ms-2"
-                to="/register"
-              >
+              <RouterLink class="text-primary ms-2" to="/register">
                 Crea una cuenta
               </RouterLink>
             </VCol>
 
-            <VCol
-              cols="12"
-              class="d-flex align-center"
-            >
+            <VCol cols="12" class="d-flex align-center">
               <VDivider />
               <span class="mx-4">or</span>
               <VDivider />
             </VCol>
 
             <!-- auth providers -->
-            <VCol
-              cols="12"
-              class="text-center"
-            >
+            <VCol cols="12" class="text-center">
               <AuthProvider />
             </VCol>
           </VRow>

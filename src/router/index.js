@@ -37,14 +37,17 @@ const routes = [
       {
         path: "login",
         component: () => import("../pages/login.vue"),
+        meta: { requireAuth: false },
       },
       {
         path: "register",
         component: () => import("../pages/register.vue"),
+        meta: { requireAuth: false },
       },
       {
         path: "forgot-password",
         component: () => import("../pages/forgot-password.vue"),
+        meta: { requireAuth: false },
       },
       {
         path: "/:pathMatch(.*)*",
@@ -54,6 +57,7 @@ const routes = [
   },
   {
     path: "/admin",
+    name: "admin",
     component: () => import("../layouts/dashboard.vue"),
     meta: { requireAuth: true },
     children: [
@@ -89,7 +93,11 @@ router.beforeEach((to, from, next) => {
       next();
     }
   } else {
-    next();
+    if (useAuthStore().isAuthenticated) {
+      next("/admin");
+    } else {
+      next();
+    }
   }
 });
 

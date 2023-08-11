@@ -1,30 +1,36 @@
 // auth.js
+import http from "@/plugins/axios";
 import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
-    token: localStorage.getItem("token") || null,
+    token: localStorage.getItem("Andejecruher") || null,
   }),
   getters: {
     isAuthenticated: (state) => !!state.token,
   },
   actions: {
-    async login(email, password) {
+    async login(email, password, rememberMe) {
       try {
-        const response = await this.$axios.post("/login", {
+        const response = await http.post("/login", {
           email,
           password,
         });
-
-        this.token = response.data.token;
-        localStorage.setItem("token", this.token);
+        const { data } = response;
+        const Andejecruher = {
+          access_token: data.access_token,
+          refresh_token: data.refresh_token,
+          token_type: data.token_type,
+        };
+        localStorage.setItem("Andejecruher", JSON.stringify(Andejecruher));
       } catch (error) {
-        throw new Error("Credenciales inválidas");
+        localStorage.removeItem("Andejecruher");
+        throw new Error(error);
       }
     },
     logout() {
       this.token = null;
-      localStorage.removeItem("token");
+      localStorage.removeItem("Andejecruher");
     },
   },
 });
