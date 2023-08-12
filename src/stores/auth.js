@@ -16,15 +16,32 @@ export const useAuthStore = defineStore("auth", {
           email,
           password,
         });
+
         const { data } = response;
+
         const Andejecruher = {
           access_token: data.access_token,
           refresh_token: data.refresh_token,
           token_type: data.token_type,
         };
+
         localStorage.setItem("Andejecruher", JSON.stringify(Andejecruher));
       } catch (error) {
         localStorage.removeItem("Andejecruher");
+        throw new Error(error);
+      }
+    },
+    async register(body) {
+      try {
+        await http.post("/register", body);
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+    async forgotPassword(email) {
+      try {
+        await http.post("/forgot-password", { email });
+      } catch (error) {
         throw new Error(error);
       }
     },

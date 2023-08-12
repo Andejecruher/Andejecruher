@@ -1,19 +1,22 @@
 <script setup>
-import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 import AuthProvider from "@/views/pages/authentication/AuthProvider.vue";
 import Swal from "sweetalert2";
+import { useRouter } from "vue-router";
 
 const authStore = useAuthStore();
 const router = useRouter();
 const email = ref("");
 const password = ref("");
 const remember = ref(false);
+const loading = ref(false);
 
 const isPasswordVisible = ref(false);
 
 const login = async () => {
   try {
+    // Mostrar el spinner de carga
+    loading.value = false;
     await authStore.login(email.value, password.value, remember.value);
     // Usar SweetAlert2 para mostrar un mensaje de éxito
     await Swal.fire({
@@ -24,11 +27,20 @@ const login = async () => {
     // Redireccionar a la página de inicio
     await router.push("/admin");
   } catch (error) {
+    // Ocultar el spinner de carga
+    loading.value = true;
     // Usar SweetAlert2 para mostrar un mensaje de error
     await Swal.fire({
       icon: "error",
       title: "Error de inicio de sesión",
       text: "Credenciales inválidas. Inténtalo de nuevo.",
+    }).finally(() => {
+      // Ocultar el spinner de carga
+      loading.value = true;
+      // Limpiar el formulario
+      email.value = "";
+      password.value = "";
+      remember.value = false;
     });
   }
 };
@@ -85,7 +97,7 @@ const login = async () => {
               </div>
 
               <!-- login button -->
-              <VBtn block type="submit"> Login </VBtn>
+              <VBtn block type="submit" :disabled="loading"> Login </VBtn>
             </VCol>
 
             <!-- create account -->

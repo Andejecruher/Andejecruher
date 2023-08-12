@@ -1,22 +1,62 @@
 <script setup>
-import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
+import { useAuthStore } from "@/stores/auth";
+import AuthProvider from "@/views/pages/authentication/AuthProvider.vue";
+import Swal from "sweetalert2";
+import { useRouter } from "vue-router";
 
+const authStore = useAuthStore();
+const router = useRouter();
 const form = ref({
-  username: '',
-  email: '',
-  password: '',
+  name: "",
+  email: "",
+  password: "",
   privacyPolicies: false,
-})
+});
+const loading = ref(true);
 
-const isPasswordVisible = ref(false)
+const isPasswordVisible = ref(false);
+
+const register = async () => {
+  try {
+    // Mostrar el spinner de carga
+    loading.value = false;
+    // Registrar el usuario
+    await authStore.register(form.value);
+    // Usar SweetAlert2 para mostrar un mensaje de éxito
+    await Swal.fire({
+      icon: "success",
+      title: "Registro exitoso",
+      text: "¡Bienvenido!",
+    });
+    // Redireccionar a la página de inicio
+
+    await router.push("/login");
+  } catch (error) {
+    // Ocultar el spinner de carga
+    loading.value = true;
+    // Usar SweetAlert2 para mostrar un mensaje de error
+    await Swal.fire({
+      icon: "error",
+      title: "Error de registro",
+      text: "Credenciales inválidas. Inténtalo de nuevo.",
+    }).finally(() => {
+      // Ocultar el spinner de carga
+      loading.value = true;
+      // Limpiar el formulario
+      form.value = {
+        name: "",
+        email: "",
+        password: "",
+        privacyPolicies: false,
+      };
+    });
+  }
+};
 </script>
 
 <template>
   <div class="auth-wrapper d-flex align-center justify-center pa-4">
-    <VCard
-      class="auth-card pa-4 pt-7"
-      max-width="448"
-    >
+    <VCard class="auth-card pa-4 pt-7" max-width="448">
       <VCardItem class="justify-center">
         <VCardTitle class="text-2xl font-weight-bold">
           Andejecruher
@@ -24,18 +64,16 @@ const isPasswordVisible = ref(false)
       </VCardItem>
 
       <VCardText class="pt-2">
-        <h5 class="text-h5 mb-1">
-          Registra tus datos 🚀
-        </h5>
+        <h5 class="text-h5 mb-1">Registra tus datos 🚀</h5>
       </VCardText>
 
       <VCardText>
-        <VForm @submit.prevent="$router.push('/')">
+        <VForm @submit.prevent="register">
           <VRow>
             <!-- Username -->
             <VCol cols="12">
               <VTextField
-                v-model="form.username"
+                v-model="form.name"
                 autofocus
                 label="Username"
                 placeholder="Johndoe"
@@ -67,54 +105,35 @@ const isPasswordVisible = ref(false)
                   v-model="form.privacyPolicies"
                   inline
                 />
-                <VLabel
-                  for="privacy-policy"
-                  style="opacity: 1;"
-                >
+                <VLabel for="privacy-policy" style="opacity: 1">
                   <span class="me-1">Yo acepto</span>
-                  <a
-                    href="javascript:void(0)"
-                    class="text-primary"
-                  >los terminos de privacidad y politica</a>
+                  <a href="javascript:void(0)" class="text-primary"
+                    >los terminos de privacidad y politica</a
+                  >
                 </VLabel>
               </div>
 
-              <VBtn
-                block
-                type="submit"
-              >
+              <VBtn block type="submit" :disabled="!loading">
                 Crear Cuenta
               </VBtn>
             </VCol>
 
             <!-- login instead -->
-            <VCol
-              cols="12"
-              class="text-center text-base"
-            >
+            <VCol cols="12" class="text-center text-base">
               <span>Ya cuentas con una cuenta?</span>
-              <RouterLink
-                class="text-primary ms-2"
-                to="/login"
-              >
+              <RouterLink class="text-primary ms-2" to="/login">
                 Iniciar sesion ahora
               </RouterLink>
             </VCol>
 
-            <VCol
-              cols="12"
-              class="d-flex align-center"
-            >
+            <VCol cols="12" class="d-flex align-center">
               <VDivider />
               <span class="mx-4">or</span>
               <VDivider />
             </VCol>
 
             <!-- auth providers -->
-            <VCol
-              cols="12"
-              class="text-center"
-            >
+            <VCol cols="12" class="text-center">
               <AuthProvider />
             </VCol>
           </VRow>
