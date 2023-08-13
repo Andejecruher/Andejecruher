@@ -11,11 +11,6 @@ const routes = [
         path: "inicio",
         component: () => import("../views/pages/home/Home.vue"),
       },
-
-      // {
-      //   path: 'portafolio',
-      //   component: () => import('../views/pages/portafolio/Portafolio.vue'),
-      // },
       {
         path: "blog",
         component: () => import("../views/pages/blog/Blog.vue"),
@@ -76,6 +71,11 @@ const routes = [
         component: () => import("../pages/typography.vue"),
         meta: { requireAuth: true },
       },
+      {
+        path: "profile",
+        component: () => import("../pages/account-settings.vue"),
+        meta: { requireAuth: true },
+      },
     ],
   },
 ];
@@ -85,18 +85,24 @@ const router = createRouter({
   routes,
 });
 
+const excludeRoutes = ["/inicio", "/blog", "/blog/:id", "/contacto"];
+
 router.beforeEach((to, from, next) => {
-  if (to.matched.some((record) => record.meta.requireAuth)) {
-    if (!useAuthStore().isAuthenticated) {
-      next("/inicio");
-    } else {
-      next();
-    }
+  if (excludeRoutes.includes(to.path)) {
+    next();
   } else {
-    if (useAuthStore().isAuthenticated) {
-      next("/admin");
+    if (to.matched.some((record) => record.meta.requireAuth)) {
+      if (!useAuthStore().isAuthenticated) {
+        next("/inicio");
+      } else {
+        next();
+      }
     } else {
-      next();
+      if (useAuthStore().isAuthenticated) {
+        next("/admin");
+      } else {
+        next();
+      }
     }
   }
 });

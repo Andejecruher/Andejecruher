@@ -31,6 +31,7 @@ const register = async () => {
     // Redireccionar a la página de inicio
 
     await router.push("/login");
+    loading.value = true;
   } catch (error) {
     // Ocultar el spinner de carga
     loading.value = true;
@@ -39,16 +40,6 @@ const register = async () => {
       icon: "error",
       title: "Error de registro",
       text: "Credenciales inválidas. Inténtalo de nuevo.",
-    }).finally(() => {
-      // Ocultar el spinner de carga
-      loading.value = true;
-      // Limpiar el formulario
-      form.value = {
-        name: "",
-        email: "",
-        password: "",
-        privacyPolicies: false,
-      };
     });
   }
 };

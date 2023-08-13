@@ -16,7 +16,7 @@ const isPasswordVisible = ref(false);
 const login = async () => {
   try {
     // Mostrar el spinner de carga
-    loading.value = false;
+    loading.value = true;
     await authStore.login(email.value, password.value, remember.value);
     // Usar SweetAlert2 para mostrar un mensaje de éxito
     await Swal.fire({
@@ -24,23 +24,17 @@ const login = async () => {
       title: "Inicio de sesión exitoso",
       text: "¡Bienvenido!",
     });
-    // Redireccionar a la página de inicio
+    // Redireccionar a la página de admin
     await router.push("/admin");
+    loading.value = false;
   } catch (error) {
     // Ocultar el spinner de carga
-    loading.value = true;
+    loading.value = false;
     // Usar SweetAlert2 para mostrar un mensaje de error
     await Swal.fire({
       icon: "error",
       title: "Error de inicio de sesión",
       text: "Credenciales inválidas. Inténtalo de nuevo.",
-    }).finally(() => {
-      // Ocultar el spinner de carga
-      loading.value = true;
-      // Limpiar el formulario
-      email.value = "";
-      password.value = "";
-      remember.value = false;
     });
   }
 };

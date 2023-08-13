@@ -7,13 +7,10 @@
     :rail="railLeft"
     location="left"
     width="330"
-    style="position: fixed;"
+    style="position: fixed"
     @click="railLeft = false"
   >
-    <template
-      #prepend
-      style="padding: 50px;"
-    >
+    <template #prepend style="padding: 50px">
       <VContainer fluid>
         <VRow justify="end">
           <template v-if="railLeft">
@@ -36,16 +33,8 @@
             />
           </template>
         </VRow>
-        <VRow
-          justify="center"
-          no-gutters=""
-        >
-          <VCol
-            v-show="!railLeft"
-            cols="12"
-            sm="12"
-            md="12"
-          >
+        <VRow justify="center" no-gutters="">
+          <VCol v-show="!railLeft" cols="12" sm="12" md="12">
             <DataProfile
               :nombre-prop="nombre"
               :descripcion-prop="descripcion"
@@ -64,38 +53,18 @@
         :edad-prop="edad"
       />
       <VDivider />
-      <Lenguajes
-        :lenguajes="listaLenguajes"
-        :time="200"
-      />
+      <Lenguajes :lenguajes="listaLenguajes" :time="200" />
       <VDivider />
-      <Skills
-        :habilidades="listaHabilidades"
-        :time="200"
-      />
+      <Skills :habilidades="listaHabilidades" :time="200" />
       <VDivider />
       <Framework />
       <VDivider />
       <VRow>
-        <VCol
-          cols="12"
-          class="text-center mt-2"
-        >
-          <VBtn
-            variant="text"
-            width="100%"
-          >
-            <a
-              variant="text"
-              width="100%"
-              :href="pdfURL"
-              target="_blank"
-            >
+        <VCol cols="12" class="text-center mt-2">
+          <VBtn variant="text" width="100%">
+            <a variant="text" width="100%" :href="pdfURL" target="_blank">
               <span class="text-white">Descargar CV</span>
-              <VIcon
-                right
-                class="text-white"
-              >mdi-download</VIcon>
+              <VIcon right class="text-white">mdi-download</VIcon>
             </a>
           </VBtn>
         </VCol>
@@ -106,10 +75,7 @@
       <!-- auth providers -->
       <VDivider />
       <VRow>
-        <VCol
-          cols="12"
-          class="text-center"
-        >
+        <VCol cols="12" class="text-center">
           <AuthProvider />
         </VCol>
       </VRow>
@@ -123,14 +89,11 @@
     :temporary="$vuetify.display.mobile"
     :rail="rail"
     location="right"
-    style="position: fixed;"
+    style="position: fixed"
     @click="rail = false"
   >
     <template #prepend>
-      <VRow
-        justify="left"
-        style="padding: 20px;"
-      >
+      <VRow justify="left" style="padding: 20px">
         <template v-if="rail">
           <!-- Icono del botón cuando el drawer está cerrado -->
           <VAppBarNavIcon
@@ -155,17 +118,9 @@
     </template>
 
     <VContainer fluid>
-      <VRow
-        justify="center"
-        no-gutters
-      >
+      <VRow justify="center" no-gutters>
         <VExpandXTransition>
-          <VCol
-            v-show="rail"
-            cols="12"
-            sm="12"
-            md="12"
-          >
+          <VCol v-show="rail" cols="12" sm="12" md="12">
             <p class="section-title">
               {{ selectedItem }}
             </p>
@@ -174,18 +129,10 @@
       </VRow>
     </VContainer>
 
-    <VContainer
-      fluid
-      class="content-menu"
-    >
+    <VContainer fluid class="content-menu">
       <VRow justify="center">
         <VExpandTransition>
-          <VCol
-            v-show="!rail"
-            cols="12"
-            sm="12"
-            md="12"
-          >
+          <VCol v-show="!rail" cols="12" sm="12" md="12">
             <VList>
               <VListItem
                 v-for="(item, i) in items"
@@ -206,32 +153,25 @@
       </VRow>
     </VContainer>
   </VNavigationDrawer>
-  <VAppBar
-    v-if="$vuetify.display.mobile"
-    elevation="2"
-    style="position: fixed;"
-  >
+  <VAppBar v-if="$vuetify.display.mobile" elevation="2" style="position: fixed">
     <VAppBarNavIcon
       variant="text"
       class="text-white button-drawer"
       @click="openDrawer('left')"
     />
     <template #append>
-      <VBtn
-        icon="mdi-dots-vertical"
-        @click="openDrawer('right')"
-      />
+      <VBtn icon="mdi-dots-vertical" @click="openDrawer('right')" />
     </template>
   </VAppBar>
 </template>
 
 <script>
-import AuthProvider from "@/views/pages/authentication/AuthProvider.vue"
-import DataProfile from "./DataProfile.vue"
-import Framework from "./Frameworks.vue"
-import Lenguajes from "./Lenguajes.vue"
-import ResidentData from "./ResidentData.vue"
-import Skills from "./Skills.vue"
+import AuthProvider from "@/views/pages/authentication/AuthProvider.vue";
+import DataProfile from "./DataProfile.vue";
+import Framework from "./Frameworks.vue";
+import Lenguajes from "./Lenguajes.vue";
+import ResidentData from "./ResidentData.vue";
+import Skills from "./Skills.vue";
 
 export default {
   components: {
@@ -275,39 +215,38 @@ export default {
         // Puedes agregar más habilidades aquí
       ],
       items: [
-        { text: "Inicio", icon: "mdi-home" }, 
-
-        // { text: "Blog", icon: "mdi-post-outline" },
+        { text: "Inicio", icon: "mdi-home" },
+        { text: "Blog", icon: "mdi-post-outline" },
         { text: "Contacto", icon: "mdi-contacts" },
       ],
       activo: false,
       selectedItem: "Inicio",
-    }
+    };
   },
   methods: {
     selectItem(item) {
-      this.selectedItem = item
-      this.$router.push(item)
+      this.selectedItem = item;
+      this.$router.push(item);
       setTimeout(() => {
-        this.rail = !this.rail
-      }, 500)
+        this.rail = !this.rail;
+      }, 500);
     },
     openDrawer(type) {
       switch (type) {
-      case "left":
-        this.drawerleft = true
-        this.railLeft = !this.railLeft
-        break
-      case "right":
-        this.drawer = true
-        this.rail = !this.rail
-        break
-      default:
-        break
+        case "left":
+          this.drawerleft = true;
+          this.railLeft = !this.railLeft;
+          break;
+        case "right":
+          this.drawer = true;
+          this.rail = !this.rail;
+          break;
+        default:
+          break;
       }
     },
   },
-}
+};
 </script>
 
 <style scope>
