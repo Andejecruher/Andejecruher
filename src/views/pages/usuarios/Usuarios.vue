@@ -56,7 +56,7 @@ const desserts = [
       <thead>
         <tr>
           <th class="text-uppercase">Nombre</th>
-          <th>Descripcion</th>
+          <th>Correo</th>
           <th>Acciones</th>
         </tr>
       </thead>

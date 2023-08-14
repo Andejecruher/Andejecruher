@@ -1,11 +1,11 @@
 <script setup>
-import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
-import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
-import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
+import VerticalNavSectionTitle from "@/@layouts/components/VerticalNavSectionTitle.vue";
+import VerticalNavLayout from "@layouts/components/VerticalNavLayout.vue";
+import VerticalNavLink from "@layouts/components/VerticalNavLink.vue";
 
 // Components
-import Footer from '@/layouts/components/Footer.vue'
-import UserProfile from '@/layouts/components/UserProfile.vue'
+import Footer from "@/layouts/components/Footer.vue";
+import UserProfile from "@/layouts/components/UserProfile.vue";
 </script>
 
 <template>
@@ -20,7 +20,6 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
         >
           <VIcon icon="bx-menu" />
         </IconBtn>
-
 
         <VSpacer />
 
@@ -37,7 +36,7 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
         :item="{
           title: 'Dashboard',
           icon: 'bx-home',
-          to: '/dashboard',
+          to: '/admin',
         }"
       />
 
@@ -51,25 +50,24 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
         :item="{
           title: 'Usuarios',
           icon: 'bx-user',
-          to: '/dashboard/usuarios',
+          to: '/admin/usuarios',
         }"
       />
       <VerticalNavLink
         :item="{
           title: 'Categorias',
           icon: 'bx-tag',
-          to: '/dashboard/categorias',
+          to: '/admin/categorias',
         }"
       />
       <VerticalNavLink
         :item="{
           title: 'Articulos',
           icon: 'bx-book',
-          to: '/dashboard/articulos',
+          to: '/admin/articulos',
         }"
       />
     </template>
-
 
     <!-- 👉 Pages -->
     <slot />
