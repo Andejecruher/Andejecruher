@@ -1,5 +1,10 @@
 <script setup>
 import avatar1 from "@images/avatars/avatar-1.png";
+import { useAuthStore } from "@/stores/auth";
+import { useRouter } from "vue-router";
+
+const authStore = useAuthStore();
+const router = useRouter();
 </script>
 
 <template>

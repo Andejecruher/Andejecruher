@@ -10,18 +10,22 @@ const routes = [
       {
         path: "inicio",
         component: () => import("../views/pages/home/Home.vue"),
+        name: "inicio",
       },
       {
         path: "blog",
         component: () => import("../views/pages/blog/Blog.vue"),
+        name: "blog",
       },
       {
         path: "blog/:id",
         component: () => import("../views/pages/blog/Post.vue"),
+        name: "post",
       },
       {
         path: "contacto",
         component: () => import("../views/pages/contact/Contact.vue"),
+        name: "contacto",
       },
     ],
   },
@@ -85,10 +89,10 @@ const router = createRouter({
   routes,
 });
 
-const excludeRoutes = ["/inicio", "/blog", "/blog/:id", "/contacto"];
+const excludeRoutes = ["inicio", "blog", "post", "contacto"];
 
 router.beforeEach((to, from, next) => {
-  if (excludeRoutes.includes(to.path)) {
+  if (excludeRoutes.includes(to.name)) {
     next();
   } else {
     if (to.matched.some((record) => record.meta.requireAuth)) {

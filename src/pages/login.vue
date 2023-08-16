@@ -18,6 +18,7 @@ const login = async () => {
     // Mostrar el spinner de carga
     loading.value = true;
     await authStore.login(email.value, password.value, remember.value);
+    await authStore.me();
     // Usar SweetAlert2 para mostrar un mensaje de éxito
     await Swal.fire({
       icon: "success",

@@ -5,6 +5,7 @@ import { defineStore } from "pinia";
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     token: localStorage.getItem("Andejecruher") || null,
+    user: null,
   }),
   getters: {
     isAuthenticated: (state) => !!state.token,
@@ -28,6 +29,15 @@ export const useAuthStore = defineStore("auth", {
         localStorage.setItem("Andejecruher", JSON.stringify(Andejecruher));
       } catch (error) {
         localStorage.removeItem("Andejecruher");
+        throw new Error(error);
+      }
+    },
+    async me() {
+      try {
+        const response = await http.get("/user");
+        const { data } = response;
+        this.user = data;
+      } catch (error) {
         throw new Error(error);
       }
     },
