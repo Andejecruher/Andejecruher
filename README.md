@@ -30,4 +30,4 @@ Si encuentras valor en mis proyectos y contenido, considera patrocinar mi trabaj
 ¡Gracias por visitar mi perfil de GitHub! Sigamos aprendiendo, explorando y construyendo juntos.
 
 ---
-_Este formato de README está inspirado en el perfil de Andejecruher en GitHub. Por favor, da crédito si decides utilizar un formato similar._
+
