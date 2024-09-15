@@ -1,35 +1,21 @@
 <template>
   <!-- 👉 Transactions -->
-  <VCol
-    cols="12"
-    md="12"
-    sm="12"
-    order="3"
-  >
+  <VCol cols="12" md="12" sm="12" order="3">
     <Banner />
-    <History
-      :statistics="statistics"
-      :time="200"
-    />
-    <Services
-      :title="title"
-      :services="services"
-    />
-    <TimeLine
-      :education="education"
-      :works="works"
-    />
+    <History :statistics="statistics" :time="200" />
+    <Services :title="title" :services="services" />
+    <TimeLine :education="education" :works="works" />
     <FormContact />
     <ContactFormCard />
   </VCol>
 </template>
 
 <script>
-import FormContact from "../../../components/FormContact.vue"
-import Banner from "./Banner.vue"
-import History from "./History.vue"
-import Services from "./Services.vue"
-import TimeLine from "./TimeLines.vue"
+import FormContact from "../../../components/FormContact.vue";
+import Banner from "./Banner.vue";
+import History from "./History.vue";
+import Services from "./Services.vue";
+import TimeLine from "./TimeLines.vue";
 
 export default {
   components: {
@@ -87,6 +73,22 @@ export default {
       works: [
         {
           name: "Full Stack Developer",
+          subname: "DiferenteWeb",
+          description:
+            "Desarrollo y mantenimiento de APIs robustas para integrar servicios externos y mejorar la eficiencia en la comunicación entre aplicaciones. Integració n de soluciones de comercio electrónico mediante la plataforma BigCommerce, incluyendo la personalización de tiendas. Trabajo con bases de datos relacionales (MySQL) y no relacionales (MongoDB), asegurando la escalabilidad y seguridad en el almacenamiento de datos. ",
+          date: "09/2023 - 06/2024",
+          titleBtn: "Reservar",
+        },
+        {
+          name: "Full Stack Developer",
+          subname: "Hoteles Buenaventura",
+          description:
+            "Se desarrolló un calendario de fechas para Hoteles Buenaventura utilizando un stack de desarrollo moderno. Con Laravel y MySQL, se crearon APIs REST robustas que gestionan reservas y disponibilidad. El frontend, implementado con React.js, permite a los usuarios visualizar y seleccionar fechas de forma interactiva.",
+          date: "05/2022 - 04/2023",
+          titleBtn: "Reservar",
+        },
+        {
+          name: "Full Stack Developer",
           subname: "TheRocketCode",
           description:
             "Como Full Stack Developer en TheRocketCode, mi rol se centró en el desarrollo de funcionalidades para aplicaciones web utilizando React.js. Un logro destacado fue la migración exitosa del cotizador de precios de Next.js a React.js, optimizando la experiencia del usuario. Además, contribuí en la construcción de una API sólida con Node.js, Express y MongoDB para una comunicación eficiente entre el frontend y backend. ",
@@ -102,7 +104,7 @@ export default {
           titleBtn: "Reservar",
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
