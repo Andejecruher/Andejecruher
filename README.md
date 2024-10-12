@@ -21,12 +21,6 @@ Conéctate conmigo en [LinkedIn](https://www.linkedin.com/in/antonio-de-jesus-cr
 
 Si te gustaría contribuir a alguno de mis proyectos, ¡sería genial! Si encuentras problemas, tienes sugerencias o deseas colaborar de alguna manera, no dudes en abrir un issue o enviar un pull request.
 
-## Apoyo
-
-Si encuentras valor en mis proyectos y contenido, considera patrocinar mi trabajo para respaldar el desarrollo continuo y la creación de nuevos proyectos emocionantes.
-
-[![Apoyar](https://github.com/Andejecruher/apoyar.png)](https://github.com/sponsors/Andejecruher)
-
 ¡Gracias por visitar mi perfil de GitHub! Sigamos aprendiendo, explorando y construyendo juntos.
 
 ---
