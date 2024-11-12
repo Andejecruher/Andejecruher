@@ -15,7 +15,7 @@ Visita mi [Blog](https://andejecruher.com/blog) para encontrar artículos y tuto
 
 ## Contacto
 
-Conéctate conmigo en [LinkedIn](https://www.linkedin.com/in/antonio-de-jesus-cruz-hernandez-2535748b/) o envíame un [correo electrónico](mailto:andejecruher@example.com). Estoy abierto a colaboraciones, preguntas y oportunidades emocionantes.
+Conéctate conmigo en [LinkedIn]([https://www.linkedin.com/in/antonio-de-jesus-cruz-hernandez-2535748b/](https://www.linkedin.com/in/antonio-de-jes%C3%BAs-cruz-hern%C3%A1ndez-2535748b/)) o envíame un [correo electrónico](mailto:andejecruher@example.com). Estoy abierto a colaboraciones, preguntas y oportunidades emocionantes.
 
 ## Contribuciones
 
