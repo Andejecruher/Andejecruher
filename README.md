@@ -1,6 +1,5 @@
-````md
 <p align="center">
-  <img src="./assets/banner-andejecruher.png" alt="Andejecruher - Full Stack Developer" />
+  <img src="assets/fondo-linkedin.png" alt="Andejecruher - Full Stack Developer" />
 </p>
 
 <h1 align="center">Hola, soy Andejecruher 👋</h1>
@@ -55,7 +54,7 @@ Frontend Development
 Dockerized Environments
 CI/CD
 DevOps Learning Path
-````
+```
 
 ---
 
@@ -212,16 +211,16 @@ Mi objetivo profesional es evolucionar hacia el diseño de sistemas completos do
 ## GitHub Activity
 
 <p align="center">
-  <img 
-    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Andejecruher&theme=github_dark" 
-    alt="GitHub Profile Summary" 
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Andejecruher&theme=github_dark"
+    alt="GitHub Profile Summary"
   />
 </p>
 
 <p align="center">
-  <img 
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Andejecruher&layout=compact&hide_border=true&bg_color=0B1115&title_color=00E5E5&text_color=E6F1F1" 
-    alt="Top Languages" 
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Andejecruher&layout=compact&hide_border=true&bg_color=0B1115&title_color=00E5E5&text_color=E6F1F1"
+    alt="Top Languages"
   />
 </p>
 
