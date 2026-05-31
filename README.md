@@ -219,29 +219,10 @@ Mi objetivo profesional es evolucionar hacia el diseño de sistemas completos do
 
 <p align="center">
   <img
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Andejecruher&layout=compact&hide_border=true&bg_color=0B1115&title_color=00E5E5&text_color=E6F1F1"
-    alt="Top Languages"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Andejecruher&theme=github_dark"
+    alt="Repos per Language"
   />
 </p>
-
-<!--
-Si las estadísticas no cargan correctamente, puedes comentar la sección anterior
-y usar solo esta versión minimalista:
-
-<p align="center">
-  <img 
-    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Andejecruher&theme=github_dark" 
-    alt="Repos per Language" 
-  />
-</p>
-
-<p align="center">
-  <img 
-    src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Andejecruher&theme=github_dark" 
-    alt="Most Commit Language" 
-  />
-</p>
--->
 
 ---
 
